@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>Focus</title>
+		<script>
+			try {
+				var t = localStorage.getItem('theme') || 'light';
+				var p = localStorage.getItem('palette') || 'slate';
+				document.documentElement.setAttribute('data-theme', t);
+				document.documentElement.setAttribute('data-palette', p);
+			} catch (e) {}
+		</script>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<div class="titlebar">Focus</div>
+		<main class="wrap">
+			<section class="card header" id="headerCard">
+				<div class="logo">F</div>
+				<div class="header-text">
+					<div class="app-title">FOCUS</div>
+					<div class="app-sub">Контроль фокуса · moondream · приватно</div>
+				</div>
+				<div class="pill" id="pill">
+					<span class="dot" id="dot"></span>
+					<span class="cat" id="catLabel">other</span>
+					<span class="badge" id="badge">OTHER</span>
+				</div>
+			</section>
+
+			<section class="bento">
+				<div class="card today" id="todayCard">
+					<div class="card-head">
+						<span class="h">Сегодня</span
+						><span class="h-sub">· всего времени</span
+						><span class="total" id="totalMins">0м всего</span>
+					</div>
+					<div class="hero" id="hero">0ч 00м</div>
+					<div class="hero-sub">общее время за сегодня</div>
+					<div class="bars" id="bars"></div>
+				</div>
+				<div class="card now">
+					<div class="h">Сейчас</div>
+					<div class="sub">активное окно</div>
+					<div class="exe" id="exe">—</div>
+					<div class="title" id="title">—</div>
+					<div class="actions">
+						<button class="btn primary" id="btnVision">Скрин сейчас</button>
+						<button class="btn ghost" id="btnTest">Тест баннера</button>
+					</div>
+				</div>
+			</section>
+
+			<section class="card system">
+				<div class="card-head">
+					<span class="h">Система</span
+					><span class="h-sub">moondream · 640px · 80 токенов · 90с</span
+					><span class="time" id="clock">--:--</span>
+				</div>
+				<div class="label">Скрин</div>
+				<div class="block" id="visionText">
+					ещё не смотрели — скрин каждые 90с
+				</div>
+				<div class="label">Вердикт · <span id="tag">OTHER</span></div>
+				<div class="block" id="verdict">—</div>
+				<div class="meta" id="meta">заголовок: —</div>
+			</section>
+
+			<section class="card settings">
+				<div class="settings-head">
+					<div>
+						<div class="h">Настройки</div>
+						<div class="sub">лимиты и уведомления</div>
+					</div>
+					<div class="settings-actions">
+						<div class="palette" id="palette">
+							<button data-palette="slate" class="pal active" title="Slate" style="background: #0ea5e9"></button
+							><button data-palette="violet" class="pal" title="Violet" style="background: #8b5cf6"></button
+							><button data-palette="emerald" class="pal" title="Emerald" style="background: #10b981"></button>
+						</div>
+						<button class="theme-btn" id="themeToggle" title="Тёмная тема">◐</button>
+					</div>
+				</div>
+				<div class="sliders">
+					<div
+						class="row"
+						data-key="game"
+						data-min="1"
+						data-max="60"
+						data-fmt="%d мин"
+					>
+						<span class="lbl">Лимит игры</span>
+						<div class="track-wrap">
+							<div class="track">
+								<div class="fill"></div>
+								<div class="thumb"></div>
+							</div>
+						</div>
+						<div class="stepper">
+							<button class="minus">−</button><span class="val">30 мин</span
+							><button class="plus">+</button>
+						</div>
+					</div>
+					<div
+						class="row"
+						data-key="yt"
+						data-min="1"
+						data-max="90"
+						data-fmt="%d мин"
+					>
+						<span class="lbl">Лимит YouTube</span>
+						<div class="track-wrap">
+							<div class="track">
+								<div class="fill"></div>
+								<div class="thumb"></div>
+							</div>
+						</div>
+						<div class="stepper">
+							<button class="minus">−</button><span class="val">30 мин</span
+							><button class="plus">+</button>
+						</div>
+					</div>
+					<div
+						class="row"
+						data-key="nag"
+						data-min="1"
+						data-max="30"
+						data-fmt="%d мин"
+					>
+						<span class="lbl">Интервал напоминания</span>
+						<div class="track-wrap">
+							<div class="track">
+								<div class="fill"></div>
+								<div class="thumb"></div>
+							</div>
+						</div>
+						<div class="stepper">
+							<button class="minus">−</button><span class="val">5 мин</span
+							><button class="plus">+</button>
+						</div>
+					</div>
+					<div
+						class="row"
+						data-key="vol"
+						data-min="0"
+						data-max="100"
+						data-fmt="%d%"
+					>
+						<span class="lbl">Громкость</span>
+						<div class="track-wrap">
+							<div class="track">
+								<div class="fill"></div>
+								<div class="thumb"></div>
+							</div>
+						</div>
+						<div class="stepper">
+							<button class="minus">−</button><span class="val">35%</span
+							><button class="plus">+</button>
+						</div>
+					</div>
+				</div>
+				<div class="toggles">
+					<label class="toggle"
+						><input type="checkbox" id="tVoice" /><span class="switch"></span>
+						Озвучивать лимит</label
+					>
+					<label class="toggle"
+						><input type="checkbox" id="tPopup" checked /><span
+							class="switch"
+						></span>
+						Всплывать окном</label
+					>
+					<label class="toggle"
+						><input type="checkbox" id="tVision" checked /><span
+							class="switch"
+						></span>
+						Анализировать скрин</label
+					>
+				</div>
+			</section>
+
+			<footer class="foot">
+				<span>Focus · локально · приватно</span
+				><button class="btn ghost small" id="btnReset">Сбросить сегодня</button>
+			</footer>
+		</main>
+		<script src="app.js"></script>
+	</body>
+</html>

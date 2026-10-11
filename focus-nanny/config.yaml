@@ -1,0 +1,62 @@
+check_interval: 3
+vision_interval: 90
+enable_vision: true
+vision_model: moondream
+chat_model: llama3.1:8b
+enable_voice: false
+voice_volume: 0.0
+enable_gui_popup: true
+limits:
+  game_minutes: 30
+  youtube_entertainment_minutes: 15
+  youtube_total_minutes: 30
+  nag_interval_minutes: 5
+games:
+- cs2.exe
+- dota2.exe
+- GTA5.exe
+- Valorant.exe
+- eldenring.exe
+- Cyberpunk2077.exe
+- minecraft.exe
+- league of legends.exe
+- steam.exe
+- epicgameslauncher.exe
+work_keywords:
+- Visual Studio
+- VS Code
+- PyCharm
+- figma
+- notion
+- docs.google
+- github
+- stackoverflow
+- learn
+- udemy
+- coursera
+- stepik
+- habr
+- documentation
+youtube_edu_keywords:
+- урок
+- лекция
+- tutorial
+- обучение
+- курс
+- разбор
+- python
+- программирование
+- математика
+- физика
+- английский
+- how to
+- гайд
+youtube_fun_keywords:
+- мем
+- прикол
+- летсплей
+- стрим
+- реакция
+- вписка
+- челлендж
+enable_llm_judge: true

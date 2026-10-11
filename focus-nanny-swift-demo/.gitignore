@@ -1,0 +1,36 @@
+# SwiftPM / Xcode build
+.build/
+.swiftpm/
+DerivedData/
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+**/xcshareddata/IDEWorkspaceChecks.plist
+*.xcworkspace
+xcuserdata/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.o
+*.a
+
+# SPM resolved — коммитить или нет на выбор (закомментировано = коммитим)
+# Package.resolved
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# web demo (если собирается отдельно)
+web/dist/
+web/node_modules/

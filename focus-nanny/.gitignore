@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+*.egg
+dist/
+build/
+*.whl
+
+# venv
+.venv/
+venv/
+env/
+ENV/
+.conda/
+
+# runtime / local data — не коммитить статистику
+session.json
+session.local.json
+*.db
+*.log
+*.sqlite3
+
+# config overrides (основной config.yaml коммитим, локальные — нет)
+config.local.yaml
+.env
+.env.local
+
+# tooling cache
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.pyre/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
